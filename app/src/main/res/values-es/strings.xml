@@ -17,6 +17,7 @@
     <string name="today">HOY</string>
     <string name="tomorrow">MAÑANA</string>
     <string name="no_active_matches">No hay partidos activos</string>
+    <string name="loading_matches">Cargando partidos&#8230;</string>
     <string name="goal">¡Gol!</string>
     <string name="fav_draw">El favorito está empatando</string>
     <string name="fav_losing">¡El favorito está perdiendo!</string>

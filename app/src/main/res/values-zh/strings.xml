@@ -17,6 +17,7 @@
     <string name="today">今天</string>
     <string name="tomorrow">明天</string>
     <string name="no_active_matches">暂无比赛</string>
+    <string name="loading_matches">正在加载比赛&#8230;</string>
     <string name="goal">进球！</string>
     <string name="fav_draw">热门球队战平</string>
     <string name="fav_losing">热门球队落后！</string>

@@ -17,6 +17,7 @@
     <string name="today">СЬОГОДНІ</string>
     <string name="tomorrow">ЗАВТРА</string>
     <string name="no_active_matches">Немає активних матчів</string>
+    <string name="loading_matches">Завантаження матчів&#8230;</string>
     <string name="goal">Гол!</string>
     <string name="fav_draw">Фаворит грає внічию</string>
     <string name="fav_losing">Фаворит програє!</string>

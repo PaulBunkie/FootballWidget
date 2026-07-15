@@ -17,6 +17,7 @@
     <string name="today">AUJOURD\'HUI</string>
     <string name="tomorrow">DEMAIN</string>
     <string name="no_active_matches">Aucun match actif</string>
+    <string name="loading_matches">Chargement des matchs&#8230;</string>
     <string name="goal">But !</string>
     <string name="fav_draw">Le favori fait match nul</string>
     <string name="fav_losing">Le favori perd !</string>

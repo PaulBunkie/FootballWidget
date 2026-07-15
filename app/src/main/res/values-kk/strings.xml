@@ -17,6 +17,7 @@
     <string name="today">БҮГІН</string>
     <string name="tomorrow">ЕРТЕҢ</string>
     <string name="no_active_matches">Белсенді матчтар жоқ</string>
+    <string name="loading_matches">Матчтар жүктелуде&#8230;</string>
     <string name="goal">Гол!</string>
     <string name="fav_draw">Фаворит тең ойнап жатыр</string>
     <string name="fav_losing">Фаворит ұтылып жатыр!</string>
