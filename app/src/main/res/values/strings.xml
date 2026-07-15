@@ -4,7 +4,7 @@
     <string name="app_slogan">Rock-Solid Bets</string>
     <string name="widget_description">Shows today\'s football matches</string>
     <string name="odds_threshold_title">Your favorite</string>
-    <string name="transparency_title">Widget Transparency</string>
+    <string name="transparency_title">Widget transparency</string>
     <string name="days_ahead_title">Show matches for</string>
     <string name="absolute_favorite">Absolute</string>
     <string name="can_win">Likely</string>
@@ -17,7 +17,7 @@
     <string name="today">TODAY</string>
     <string name="tomorrow">TOMORROW</string>
     <string name="no_active_matches">No active matches</string>
-    <string name="loading_matches">Loading matches...</string>
+    <string name="loading_matches">Loading matches&#8230;</string>
     <string name="goal">Goal!</string>
     <string name="fav_draw">Favorite is drawing</string>
     <string name="fav_losing">Favorite is losing!</string>
