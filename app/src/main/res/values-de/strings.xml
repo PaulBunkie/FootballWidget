@@ -5,14 +5,17 @@
     <string name="widget_description">Fußballspiele-Widget für heute</string>
     <string name="odds_threshold_title">Ihr Favorit</string>
     <string name="transparency_title">Widget-Transparenz</string>
+    <string name="days_ahead_title">Spiele anzeigen für</string>
     <string name="absolute_favorite">Absolut</string>
     <string name="can_win">Wahrscheinlich</string>
     <string name="current_threshold_format">%.2f</string>
     <string name="transparency_format">%d%%</string>
+    <string name="days_ahead_format">%d Tage</string>
     <string name="system_notification_settings">benachrichtigungseinstellungen</string>
     <string name="done">fertig</string>
     <string name="unavailable_in_country">In Ihrem Land nicht verfügbar</string>
     <string name="today">HEUTE</string>
+    <string name="tomorrow">MORGEN</string>
     <string name="no_active_matches">Keine aktiven Spiele</string>
     <string name="goal">Tor!</string>
     <string name="fav_draw">Favorit spielt unentschieden</string>

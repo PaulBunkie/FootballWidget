@@ -5,14 +5,17 @@
     <string name="widget_description">Віджет футбольних матчів на сьогодні</string>
     <string name="odds_threshold_title">Ваш фаворит</string>
     <string name="transparency_title">Прозорість віджета</string>
+    <string name="days_ahead_title">Показувати матчі на</string>
     <string name="absolute_favorite">Безумовний</string>
     <string name="can_win">Ймовірний</string>
     <string name="current_threshold_format">%.2f</string>
     <string name="transparency_format">%d%%</string>
+    <string name="days_ahead_format">%d дн.</string>
     <string name="system_notification_settings">налаштування сповіщень</string>
     <string name="done">готово</string>
     <string name="unavailable_in_country">Недоступно у вашій країні</string>
     <string name="today">СЬОГОДНІ</string>
+    <string name="tomorrow">ЗАВТРА</string>
     <string name="no_active_matches">Немає активних матчів</string>
     <string name="goal">Гол!</string>
     <string name="fav_draw">Фаворит грає внічию</string>

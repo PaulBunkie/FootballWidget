@@ -19,8 +19,10 @@ class MainActivity : AppCompatActivity() {
         private const val KEY_SETUP_COMPLETED = "setup_completed"
         private const val KEY_ODDS_THRESHOLD = "odds_threshold"
         private const val KEY_WIDGET_TRANSPARENCY = "widget_transparency"
+        private const val KEY_DAYS_AHEAD = "widget_days_ahead"
         private const val DEFAULT_ODDS_THRESHOLD = 1.8f
         private const val DEFAULT_WIDGET_TRANSPARENCY = 70 // 70%
+        private const val DEFAULT_DAYS_AHEAD = 1
 
         fun isSetupCompleted(context: Context): Boolean {
             return context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
@@ -44,6 +46,11 @@ class MainActivity : AppCompatActivity() {
         fun getWidgetTransparency(context: Context): Int {
             return context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
                 .getInt(KEY_WIDGET_TRANSPARENCY, DEFAULT_WIDGET_TRANSPARENCY)
+        }
+
+        fun getDaysAhead(context: Context): Int {
+            return context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
+                .getInt(KEY_DAYS_AHEAD, DEFAULT_DAYS_AHEAD)
         }
     }
 
@@ -75,6 +82,9 @@ class MainActivity : AppCompatActivity() {
         
         val tvTransparencyValue = findViewById<android.widget.TextView>(R.id.tvTransparencyValue)
         val seekBarTransparency = findViewById<android.widget.SeekBar>(R.id.seekBarTransparency)
+        
+        val tvDaysAheadValue = findViewById<android.widget.TextView>(R.id.tvDaysAheadValue)
+        val seekBarDaysAhead = findViewById<android.widget.SeekBar>(R.id.seekBarDaysAhead)
 
         val savedThreshold = getFavoriteOddsThreshold(this)
         val progress = ((savedThreshold - 1.1f) * 100).toInt().coerceIn(0, 70)
@@ -110,6 +120,22 @@ class MainActivity : AppCompatActivity() {
             }
         })
 
+        val savedDaysAhead = getDaysAhead(this)
+        seekBarDaysAhead.progress = (savedDaysAhead - 1).coerceIn(0, 6)
+        updateDaysAheadText(tvDaysAheadValue, savedDaysAhead)
+
+        seekBarDaysAhead.setOnSeekBarChangeListener(object : android.widget.SeekBar.OnSeekBarChangeListener {
+            override fun onProgressChanged(seekBar: android.widget.SeekBar?, progress: Int, fromUser: Boolean) {
+                updateDaysAheadText(tvDaysAheadValue, progress + 1)
+            }
+            override fun onStartTrackingTouch(seekBar: android.widget.SeekBar?) {}
+            override fun onStopTrackingTouch(seekBar: android.widget.SeekBar?) {
+                val days = (seekBar?.progress ?: 0) + 1
+                prefs.edit { putInt(KEY_DAYS_AHEAD, days) }
+                FootballWidgetProvider.updateAllWidgets(this@MainActivity)
+            }
+        })
+
         btnNotificationSettings.setOnClickListener {
             openNotificationSettings(this)
         }
@@ -126,6 +152,10 @@ class MainActivity : AppCompatActivity() {
 
     private fun updateTransparencyText(textView: android.widget.TextView, transparency: Int) {
         textView.text = getString(R.string.transparency_format, transparency)
+    }
+
+    private fun updateDaysAheadText(textView: android.widget.TextView, days: Int) {
+        textView.text = getString(R.string.days_ahead_format, days)
     }
 
     private fun openNotificationSettings(context: Context) {

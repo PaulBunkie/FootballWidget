@@ -120,13 +120,27 @@ class MatchRepository(private val context: Context) {
     fun loadFilteredMatches(): List<FootballMatch> {
         val data = loadCachedMatches() ?: return emptyList()
         val threshold = MainActivity.getFavoriteOddsThreshold(context).toDouble()
+        val daysAhead = MainActivity.getDaysAhead(context)
+        
+        val now = System.currentTimeMillis()
+        val calendar = java.util.Calendar.getInstance()
+        calendar.timeInMillis = now
+        // Устанавливаем на конец дня через N дней
+        calendar.add(java.util.Calendar.DAY_OF_YEAR, daysAhead - 1)
+        calendar.set(java.util.Calendar.HOUR_OF_DAY, 23)
+        calendar.set(java.util.Calendar.MINUTE, 59)
+        calendar.set(java.util.Calendar.SECOND, 59)
+        calendar.set(java.util.Calendar.MILLISECOND, 999)
+        val maxTime = calendar.timeInMillis
         
         return data.matches.filter { match ->
             val k0 = match.k0
-            // Если k0 нет, считаем что фильтр проходит (или наоборот? 
-            // Обычно фавориты всегда имеют k0. Если нет k0, может это не топ матч.
-            // Оставим как есть, если k0 null - не фильтруем)
-            k0 == null || k0 <= threshold
+            val matchTime = getMatchStartTimeMillis(match.time_utc, match.date)
+            
+            val passOdds = k0 == null || k0 <= threshold
+            val passDate = matchTime <= maxTime || matchTime <= (now + 3 * 3600 * 1000) // Всегда показываем если в лайве (3 часа запас)
+            
+            passOdds && passDate
         }
     }
 

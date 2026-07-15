@@ -5,14 +5,17 @@
     <string name="widget_description">今天的足球比赛小部件</string>
     <string name="odds_threshold_title">您的热门</string>
     <string name="transparency_title">小部件透明度</string>
+    <string name="days_ahead_title">显示比赛天数</string>
     <string name="absolute_favorite">绝对</string>
     <string name="can_win">可能</string>
     <string name="current_threshold_format">%.2f</string>
     <string name="transparency_format">%d%%</string>
+    <string name="days_ahead_format">%d 天</string>
     <string name="system_notification_settings">通知设置</string>
     <string name="done">完成</string>
     <string name="unavailable_in_country">您所在的国家/地区不可用</string>
     <string name="today">今天</string>
+    <string name="tomorrow">明天</string>
     <string name="no_active_matches">暂无比赛</string>
     <string name="goal">进球！</string>
     <string name="fav_draw">热门球队战平</string>

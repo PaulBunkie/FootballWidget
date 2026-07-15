@@ -5,14 +5,17 @@
     <string name="widget_description">Shows today\'s football matches</string>
     <string name="odds_threshold_title">Your favorite</string>
     <string name="transparency_title">Widget Transparency</string>
+    <string name="days_ahead_title">Show matches for</string>
     <string name="absolute_favorite">Absolute</string>
     <string name="can_win">Likely</string>
     <string name="current_threshold_format">%.2f</string>
     <string name="transparency_format">%d%%</string>
+    <string name="days_ahead_format">%d days</string>
     <string name="system_notification_settings">notification settings</string>
     <string name="done">done</string>
     <string name="unavailable_in_country">Service unavailable in your country</string>
     <string name="today">TODAY</string>
+    <string name="tomorrow">TOMORROW</string>
     <string name="no_active_matches">No active matches</string>
     <string name="loading_matches">Loading matches...</string>
     <string name="goal">Goal!</string>

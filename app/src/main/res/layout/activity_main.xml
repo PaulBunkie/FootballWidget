@@ -132,6 +132,48 @@
             android:max="100" />
     </LinearLayout>
 
+    <!-- Days Ahead Section -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:background="#FFFFFF"
+        android:elevation="2dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="bottom">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/days_ahead_title"
+                android:textSize="18sp"
+                android:textColor="#1E1E1E" />
+
+            <TextView
+                android:id="@+id/tvDaysAheadValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1 day"
+                android:textSize="10sp"
+                android:textColor="#BDBDBD"
+                android:layout_marginStart="8dp" />
+        </LinearLayout>
+
+        <SeekBar
+            android:id="@+id/seekBarDaysAhead"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:max="6" />
+    </LinearLayout>
+
     <!-- настройки уведомлений -->
     <Button
         android:id="@+id/btnNotificationSettings"

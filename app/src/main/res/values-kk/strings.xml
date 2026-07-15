@@ -5,14 +5,17 @@
     <string name="widget_description">Бүгінгі футбол матчтарының виджеті</string>
     <string name="odds_threshold_title">Сіздің фаворитіңіз</string>
     <string name="transparency_title">Виджет мөлдірлігі</string>
+    <string name="days_ahead_title">Матчтарды көрсету</string>
     <string name="absolute_favorite">Сөзсіз</string>
     <string name="can_win">Ықтимал</string>
     <string name="current_threshold_format">%.2f</string>
     <string name="transparency_format">%d%%</string>
+    <string name="days_ahead_format">%d күн</string>
     <string name="system_notification_settings">хабарландыру параметрлері</string>
     <string name="done">дайын</string>
     <string name="unavailable_in_country">Еліңізде қолжетімсіз</string>
     <string name="today">БҮГІН</string>
+    <string name="tomorrow">ЕРТЕҢ</string>
     <string name="no_active_matches">Белсенді матчтар жоқ</string>
     <string name="goal">Гол!</string>
     <string name="fav_draw">Фаворит тең ойнап жатыр</string>

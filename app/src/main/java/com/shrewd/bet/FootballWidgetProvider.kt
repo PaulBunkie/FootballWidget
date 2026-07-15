@@ -284,6 +284,21 @@ class FootballWidgetProvider : AppWidgetProvider() {
                             views.setViewVisibility(R.id.matchScore, View.VISIBLE)
                             views.setViewVisibility(R.id.matchTime, View.GONE)
                         }
+                    } else if (isMatchTomorrowLocal(st)) {
+                        if (layoutId == R.layout.widget_football_match_large) {
+                            views.setTextViewText(R.id.matchScore, localTime)
+                            views.setViewVisibility(R.id.matchScore, View.VISIBLE)
+                            views.setViewVisibility(R.id.matchDate, View.GONE)
+                            
+                            views.setViewVisibility(R.id.matchTime, View.GONE)
+                            views.setTextViewText(R.id.matchTimeNormal, context.getString(R.string.tomorrow))
+                            views.setViewVisibility(R.id.matchTimeNormal, View.VISIBLE)
+                        } else {
+                            views.setTextViewText(R.id.matchScore, context.getString(R.string.tomorrow))
+                            views.setViewVisibility(R.id.matchScore, View.VISIBLE)
+                            views.setTextViewText(R.id.matchTime, localTime)
+                            views.setViewVisibility(R.id.matchTime, View.VISIBLE)
+                        }
                     } else {
                         val formattedDate = formatDateOnly(st)
                         if (layoutId == R.layout.widget_football_match_large) {
@@ -565,6 +580,13 @@ class FootballWidgetProvider : AppWidgetProvider() {
             val calNow = Calendar.getInstance()
             return calMatch.get(Calendar.DAY_OF_YEAR) == calNow.get(Calendar.DAY_OF_YEAR) &&
                     calMatch.get(Calendar.YEAR) == calNow.get(Calendar.YEAR)
+        }
+
+        private fun isMatchTomorrowLocal(startTimeMillis: Long): Boolean {
+            val calMatch = Calendar.getInstance().apply { timeInMillis = startTimeMillis }
+            val calTomorrow = Calendar.getInstance().apply { add(Calendar.DAY_OF_YEAR, 1) }
+            return calMatch.get(Calendar.DAY_OF_YEAR) == calTomorrow.get(Calendar.DAY_OF_YEAR) &&
+                    calMatch.get(Calendar.YEAR) == calTomorrow.get(Calendar.YEAR)
         }
 
         private fun utcToLocalTime(timeUtc: String, dateString: String): String {
