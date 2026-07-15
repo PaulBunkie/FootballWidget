@@ -20,6 +20,8 @@ BetON does not give predictions or tell you what to do. It simply helps you not 
 
 ⭐ **Favorite Strength Adjustment** — choose how clear the team's advantage should be for the match to appear in your tracking list.
 
+🎨 **Widget Personalization** — adjust the widget background transparency directly in the app for a perfect match with your wallpaper.
+
 🔔 **Instant Notifications**
 
 * match start;
