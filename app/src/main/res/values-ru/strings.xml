@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">BetON</string>
+    <string name="app_slogan">Железобетонные ставки</string>
+    <string name="widget_description">Виджет футбольных матчей на сегодня</string>
+    <string name="odds_threshold_title">Ваш фаворит</string>
+    <string name="transparency_title">Прозрачность виджета</string>
+    <string name="absolute_favorite">Безусловный</string>
+    <string name="can_win">Вероятный</string>
+    <string name="current_threshold_format">%.2f</string>
+    <string name="transparency_format">%d%%</string>
+    <string name="system_notification_settings">настройки уведомлений</string>
+    <string name="done">готово</string>
+    <string name="unavailable_in_country">Недоступно в вашей стране</string>
+    <string name="today">СЕГОДНЯ</string>
+    <string name="no_active_matches">Нет активных матчей</string>
+    <string name="loading_matches">Идёт загрузка матчей...</string>
+    <string name="goal">Гол!</string>
+    <string name="fav_draw">Фаворит играет вничью</string>
+    <string name="fav_losing">Фаворит проигрывает!</string>
+    <string name="fav_trouble">Фаворит в беде</string>
+    <string name="match_update">Обновление матча</string>
+    <string name="match_started">Матч начался</string>
+</resources>

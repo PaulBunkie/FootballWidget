@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">BetON</string>
+    <string name="app_slogan">Sicher wie Beton</string>
+    <string name="widget_description">Fußballspiele-Widget für heute</string>
+    <string name="odds_threshold_title">Ihr Favorit</string>
+    <string name="transparency_title">Widget-Transparenz</string>
+    <string name="absolute_favorite">Absolut</string>
+    <string name="can_win">Wahrscheinlich</string>
+    <string name="current_threshold_format">%.2f</string>
+    <string name="transparency_format">%d%%</string>
+    <string name="system_notification_settings">benachrichtigungseinstellungen</string>
+    <string name="done">fertig</string>
+    <string name="unavailable_in_country">In Ihrem Land nicht verfügbar</string>
+    <string name="today">HEUTE</string>
+    <string name="no_active_matches">Keine aktiven Spiele</string>
+    <string name="goal">Tor!</string>
+    <string name="fav_draw">Favorit spielt unentschieden</string>
+    <string name="fav_losing">Favorit verliert!</string>
+    <string name="fav_trouble">Favorit in Schwierigkeiten</string>
+    <string name="match_update">Spiel-Update</string>
+    <string name="match_started">Spiel hat begonnen</string>
+</resources>

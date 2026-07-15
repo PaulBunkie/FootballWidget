@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">BetON</string>
+    <string name="app_slogan">Темірдей сенімді бәс</string>
+    <string name="widget_description">Бүгінгі футбол матчтарының виджеті</string>
+    <string name="odds_threshold_title">Сіздің фаворитіңіз</string>
+    <string name="transparency_title">Виджет мөлдірлігі</string>
+    <string name="absolute_favorite">Сөзсіз</string>
+    <string name="can_win">Ықтимал</string>
+    <string name="current_threshold_format">%.2f</string>
+    <string name="transparency_format">%d%%</string>
+    <string name="system_notification_settings">хабарландыру параметрлері</string>
+    <string name="done">дайын</string>
+    <string name="unavailable_in_country">Еліңізде қолжетімсіз</string>
+    <string name="today">БҮГІН</string>
+    <string name="no_active_matches">Белсенді матчтар жоқ</string>
+    <string name="goal">Гол!</string>
+    <string name="fav_draw">Фаворит тең ойнап жатыр</string>
+    <string name="fav_losing">Фаворит ұтылып жатыр!</string>
+    <string name="fav_trouble">Фаворит қиындықта</string>
+    <string name="match_update">Матч жаңартуы</string>
+    <string name="match_started">Матч басталды</string>
+</resources>

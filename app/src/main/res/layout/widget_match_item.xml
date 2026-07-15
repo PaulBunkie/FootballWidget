@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="#2A2A2A"
+    android:padding="10dp"
+    android:layout_marginBottom="8dp">
+
+    <!-- Time row -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_marginBottom="6dp">
+
+        <TextView
+            android:id="@+id/matchTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#FFD700"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- Teams row -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <!-- Home team (left) -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="end"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/homeTeam"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#FFFFFF"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:ellipsize="end"
+                android:maxLines="1" />
+        </LinearLayout>
+
+        <!-- VS indicator -->
+        <TextView
+            android:id="@+id/vsText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="VS"
+            android:textColor="#B0B0B0"
+            android:textSize="11sp"
+            android:layout_marginHorizontal="8dp" />
+
+        <!-- Away team (right) -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="start"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/awayTeam"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#FFFFFF"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:ellipsize="end"
+                android:maxLines="1" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Odds row -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="6dp"
+        android:orientation="horizontal">
+
+        <!-- Win 1 (k0) -->
+        <TextView
+            android:id="@+id/oddsHome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#4CAF50"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:layout_marginEnd="6dp" />
+
+        <!-- Draw (k60) -->
+        <TextView
+            android:id="@+id/oddsDraw"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#FF9800"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:layout_marginEnd="6dp" />
+
+        <!-- Win 2 (k1) -->
+        <TextView
+            android:id="@+id/oddsAway"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#F44336"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+</LinearLayout>

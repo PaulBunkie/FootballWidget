@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">BetON</string>
+    <string name="app_slogan">Apuestas sólidas como el hormigón</string>
+    <string name="widget_description">Widget de partidos de fútbol de hoy</string>
+    <string name="odds_threshold_title">Tu favorito</string>
+    <string name="transparency_title">Transparencia del widget</string>
+    <string name="absolute_favorite">Absoluto</string>
+    <string name="can_win">Probable</string>
+    <string name="current_threshold_format">%.2f</string>
+    <string name="transparency_format">%d%%</string>
+    <string name="system_notification_settings">configuración de notificaciones</string>
+    <string name="done">hecho</string>
+    <string name="unavailable_in_country">No disponible en tu país</string>
+    <string name="today">HOY</string>
+    <string name="no_active_matches">No hay partidos activos</string>
+    <string name="goal">¡Gol!</string>
+    <string name="fav_draw">El favorito está empatando</string>
+    <string name="fav_losing">¡El favorito está perdiendo!</string>
+    <string name="fav_trouble">Favorito en problemas</string>
+    <string name="match_update">Actualización del partido</string>
+    <string name="match_started">El partido ha comenzado</string>
+</resources>

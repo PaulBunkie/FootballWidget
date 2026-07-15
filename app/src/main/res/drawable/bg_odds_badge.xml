@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Полупрозрачный черный цвет (4D = 30%, 66 = 40%, 80 = 50%) -->
+    <solid android:color="#66000000" />
+    <corners android:radius="4dp" />
+</shape>

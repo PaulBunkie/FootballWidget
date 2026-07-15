@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">BetON</string>
+    <string name="app_slogan">Des paris en béton</string>
+    <string name="widget_description">Widget des matchs de football d\'aujourd\'hui</string>
+    <string name="odds_threshold_title">Votre favori</string>
+    <string name="transparency_title">Transparence du widget</string>
+    <string name="absolute_favorite">Absolu</string>
+    <string name="can_win">Probable</string>
+    <string name="current_threshold_format">%.2f</string>
+    <string name="transparency_format">%d%%</string>
+    <string name="system_notification_settings">paramètres de notification</string>
+    <string name="done">terminé</string>
+    <string name="unavailable_in_country">Indisponible dans votre pays</string>
+    <string name="today">AUJOURD\'HUI</string>
+    <string name="no_active_matches">Aucun match actif</string>
+    <string name="goal">But !</string>
+    <string name="fav_draw">Le favori fait match nul</string>
+    <string name="fav_losing">Le favori perd !</string>
+    <string name="fav_trouble">Favori en difficulté</string>
+    <string name="match_update">Mise à jour du match</string>
+    <string name="match_started">Le match a commencé</string>
+</resources>

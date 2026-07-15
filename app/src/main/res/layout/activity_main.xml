@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:background="#F5F5F5">
+
+    <!-- Brand Name -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/app_name"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        android:textColor="#1E1E1E" />
+
+    <!-- Slogan -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/app_slogan"
+        android:textSize="14sp"
+        android:textColor="#616161"
+        android:layout_marginTop="4dp" />
+
+    <!-- Наш фаворит (Slider Section) -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:background="#FFFFFF"
+        android:elevation="2dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="bottom">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/odds_threshold_title"
+                android:textSize="18sp"
+                android:textColor="#1E1E1E" />
+
+            <TextView
+                android:id="@+id/tvThresholdValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1.80"
+                android:textSize="10sp"
+                android:textColor="#BDBDBD"
+                android:layout_marginStart="8dp" />
+        </LinearLayout>
+
+        <SeekBar
+            android:id="@+id/seekBarThreshold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:max="70" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/absolute_favorite"
+                android:textSize="14sp"
+                android:textColor="#757575" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/can_win"
+                android:textSize="14sp"
+                android:textColor="#757575" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Transparency Section -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:background="#FFFFFF"
+        android:elevation="2dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="bottom">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/transparency_title"
+                android:textSize="18sp"
+                android:textColor="#1E1E1E" />
+
+            <TextView
+                android:id="@+id/tvTransparencyValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="70%"
+                android:textSize="10sp"
+                android:textColor="#BDBDBD"
+                android:layout_marginStart="8dp" />
+        </LinearLayout>
+
+        <SeekBar
+            android:id="@+id/seekBarTransparency"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:max="100" />
+    </LinearLayout>
+
+    <!-- настройки уведомлений -->
+    <Button
+        android:id="@+id/btnNotificationSettings"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/system_notification_settings"
+        android:backgroundTint="#607D8B"
+        android:textColor="#FFFFFF" />
+
+    <!-- готово -->
+    <Button
+        android:id="@+id/btnDone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/done"
+        android:backgroundTint="#1E1E1E"
+        android:textColor="#FFFFFF" />
+
+</LinearLayout>
