@@ -187,7 +187,10 @@ class FootballWidgetProvider : AppWidgetProvider() {
             
             val views = RemoteViews(context.packageName, layoutId)
             val transparency = MainActivity.getWidgetTransparency(context)
-            val alphaHex = String.format("%02X", (transparency * 255 / 100))
+            val alphaInt = (transparency * 255 / 100).coerceIn(0, 255)
+            val alphaHex = String.format("%02X", alphaInt)
+            
+            views.setImageViewResource(R.id.widgetBackground, R.drawable.widget_rounded_bg)
 
             if (matches.isNotEmpty()) {
                 val currentId = repository.getCurrentMatchId(appWidgetId)
@@ -264,8 +267,9 @@ class FootballWidgetProvider : AppWidgetProvider() {
                         views.setViewVisibility(R.id.matchTime, View.VISIBLE)
                     }
                     
-                    val statusColor = if (liveData != null) getLiveBackgroundColor(match, liveData, alphaHex) else "#${alphaHex}F57F17"
-                    views.setInt(R.id.widgetRoot, "setBackgroundColor", statusColor.toColorInt())
+                    val statusColor = if (liveData != null) getLiveBackgroundColor(match, liveData, "FF") else "#FFF57F17"
+                    views.setInt(R.id.widgetBackground, "setColorFilter", statusColor.toColorInt())
+                    views.setInt(R.id.widgetBackground, "setImageAlpha", alphaInt)
                 } else {
                     val st = getMatchStartTimeMillis(match.time_utc, match.date)
                     val localTime = utcToLocalTime(match.time_utc, match.date)
@@ -316,7 +320,8 @@ class FootballWidgetProvider : AppWidgetProvider() {
                             views.setViewVisibility(R.id.matchTime, View.VISIBLE)
                         }
                     }
-                    views.setInt(R.id.widgetRoot, "setBackgroundColor", "#${alphaHex}424242".toColorInt())
+                    views.setInt(R.id.widgetBackground, "setColorFilter", "#FF424242".toColorInt())
+                    views.setInt(R.id.widgetBackground, "setImageAlpha", alphaInt)
                 }
 
                 // Odds logic: Show always
@@ -442,13 +447,14 @@ class FootballWidgetProvider : AppWidgetProvider() {
 
         private fun showLoadingStatus(context: Context, manager: AppWidgetManager, id: Int) {
             val transparency = MainActivity.getWidgetTransparency(context)
-            val alphaHex = String.format("%02X", (transparency * 255 / 100))
+            val alphaInt = (transparency * 255 / 100).coerceIn(0, 255)
             
             val options = manager.getAppWidgetOptions(id)
             val minHeight = options.getInt(AppWidgetManager.OPTION_APPWIDGET_MIN_HEIGHT)
             val layoutId = if (minHeight >= 100) R.layout.widget_football_match_large else R.layout.widget_football_match
             val views = RemoteViews(context.packageName, layoutId)
 
+            views.setImageViewResource(R.id.widgetBackground, R.drawable.widget_rounded_bg)
             views.setTextViewText(R.id.matchScore, context.getString(R.string.loading_matches))
             views.setViewVisibility(R.id.matchScore, View.VISIBLE)
             
@@ -467,15 +473,17 @@ class FootballWidgetProvider : AppWidgetProvider() {
             views.setViewVisibility(R.id.oddsContainer, View.GONE)
             views.setViewVisibility(R.id.dotsContainer, View.GONE)
             
-            views.setInt(R.id.widgetRoot, "setBackgroundColor", "#${alphaHex}424242".toColorInt())
+            views.setInt(R.id.widgetBackground, "setColorFilter", "#FF424242".toColorInt())
+            views.setInt(R.id.widgetBackground, "setImageAlpha", alphaInt)
             views.setOnClickPendingIntent(R.id.btnDetails, null)
             manager.updateAppWidget(id, views)
         }
 
         private fun showNoMatches(context: Context, views: RemoteViews, manager: AppWidgetManager, id: Int) {
             val transparency = MainActivity.getWidgetTransparency(context)
-            val alphaHex = String.format("%02X", (transparency * 255 / 100))
+            val alphaInt = (transparency * 255 / 100).coerceIn(0, 255)
             
+            views.setImageViewResource(R.id.widgetBackground, R.drawable.widget_rounded_bg)
             views.setTextViewText(R.id.matchScore, context.getString(R.string.no_active_matches))
             views.setViewVisibility(R.id.matchScore, View.VISIBLE)
             
@@ -496,7 +504,8 @@ class FootballWidgetProvider : AppWidgetProvider() {
             views.setViewVisibility(R.id.oddsContainer, View.GONE)
             views.setViewVisibility(R.id.dotsContainer, View.GONE)
 
-            views.setInt(R.id.widgetRoot, "setBackgroundColor", "#${alphaHex}424242".toColorInt())
+            views.setInt(R.id.widgetBackground, "setColorFilter", "#FF424242".toColorInt())
+            views.setInt(R.id.widgetBackground, "setImageAlpha", alphaInt)
             views.setOnClickPendingIntent(R.id.btnDetails, null)
             manager.updateAppWidget(id, views)
         }

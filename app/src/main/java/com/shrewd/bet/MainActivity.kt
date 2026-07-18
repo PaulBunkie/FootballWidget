@@ -7,6 +7,8 @@ import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
 import android.widget.Button
+import android.widget.SeekBar
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -20,6 +22,7 @@ class MainActivity : AppCompatActivity() {
         private const val KEY_ODDS_THRESHOLD = "odds_threshold"
         private const val KEY_WIDGET_TRANSPARENCY = "widget_transparency"
         private const val KEY_DAYS_AHEAD = "widget_days_ahead"
+        
         private const val DEFAULT_ODDS_THRESHOLD = 1.8f
         private const val DEFAULT_WIDGET_TRANSPARENCY = 70 // 70%
         private const val DEFAULT_DAYS_AHEAD = 1
@@ -74,87 +77,80 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val prefs = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
-        val btnNotificationSettings = findViewById<Button>(R.id.btnNotificationSettings)
-        val btnDone = findViewById<Button>(R.id.btnDone)
         
-        val tvThresholdValue = findViewById<android.widget.TextView>(R.id.tvThresholdValue)
-        val seekBarThreshold = findViewById<android.widget.SeekBar>(R.id.seekBarThreshold)
-        
-        val tvTransparencyValue = findViewById<android.widget.TextView>(R.id.tvTransparencyValue)
-        val seekBarTransparency = findViewById<android.widget.SeekBar>(R.id.seekBarTransparency)
-        
-        val tvDaysAheadValue = findViewById<android.widget.TextView>(R.id.tvDaysAheadValue)
-        val seekBarDaysAhead = findViewById<android.widget.SeekBar>(R.id.seekBarDaysAhead)
-
+        // 1. Odds Threshold (Favorite)
+        val tvThresholdValue = findViewById<TextView>(R.id.tvThresholdValue)
+        val seekBarThreshold = findViewById<SeekBar>(R.id.seekBarThreshold)
         val savedThreshold = getFavoriteOddsThreshold(this)
-        val progress = ((savedThreshold - 1.1f) * 100).toInt().coerceIn(0, 70)
-        seekBarThreshold.progress = progress
+        seekBarThreshold.progress = ((savedThreshold - 1.1f) * 100).toInt().coerceIn(0, 70)
         updateThresholdText(tvThresholdValue, savedThreshold)
-
-        seekBarThreshold.setOnSeekBarChangeListener(object : android.widget.SeekBar.OnSeekBarChangeListener {
-            override fun onProgressChanged(seekBar: android.widget.SeekBar?, progress: Int, fromUser: Boolean) {
-                val threshold = 1.1f + (progress / 100f)
-                updateThresholdText(tvThresholdValue, threshold)
+        seekBarThreshold.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+            override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
+                updateThresholdText(tvThresholdValue, 1.1f + (progress / 100f))
             }
-            override fun onStartTrackingTouch(seekBar: android.widget.SeekBar?) {}
-            override fun onStopTrackingTouch(seekBar: android.widget.SeekBar?) {
+            override fun onStartTrackingTouch(seekBar: SeekBar?) {}
+            override fun onStopTrackingTouch(seekBar: SeekBar?) {
                 val threshold = 1.1f + (seekBar?.progress ?: 0) / 100f
-                prefs.edit { putFloat(KEY_ODDS_THRESHOLD, threshold) }
+                prefs.edit(commit = true) { putFloat(KEY_ODDS_THRESHOLD, threshold) }
                 FootballWidgetProvider.updateAllWidgets(this@MainActivity)
             }
         })
 
-        val savedTransparency = getWidgetTransparency(this)
-        seekBarTransparency.progress = savedTransparency
-        updateTransparencyText(tvTransparencyValue, savedTransparency)
-
-        seekBarTransparency.setOnSeekBarChangeListener(object : android.widget.SeekBar.OnSeekBarChangeListener {
-            override fun onProgressChanged(seekBar: android.widget.SeekBar?, progress: Int, fromUser: Boolean) {
-                updateTransparencyText(tvTransparencyValue, progress)
-            }
-            override fun onStartTrackingTouch(seekBar: android.widget.SeekBar?) {}
-            override fun onStopTrackingTouch(seekBar: android.widget.SeekBar?) {
-                val transparency = seekBar?.progress ?: DEFAULT_WIDGET_TRANSPARENCY
-                prefs.edit { putInt(KEY_WIDGET_TRANSPARENCY, transparency) }
-                FootballWidgetProvider.updateAllWidgets(this@MainActivity)
-            }
-        })
-
+        // 2. Days Ahead
+        val tvDaysAheadValue = findViewById<TextView>(R.id.tvDaysAheadValue)
+        val seekBarDaysAhead = findViewById<SeekBar>(R.id.seekBarDaysAhead)
         val savedDaysAhead = getDaysAhead(this)
         seekBarDaysAhead.progress = (savedDaysAhead - 1).coerceIn(0, 6)
         updateDaysAheadText(tvDaysAheadValue, savedDaysAhead)
-
-        seekBarDaysAhead.setOnSeekBarChangeListener(object : android.widget.SeekBar.OnSeekBarChangeListener {
-            override fun onProgressChanged(seekBar: android.widget.SeekBar?, progress: Int, fromUser: Boolean) {
+        seekBarDaysAhead.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+            override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
                 updateDaysAheadText(tvDaysAheadValue, progress + 1)
             }
-            override fun onStartTrackingTouch(seekBar: android.widget.SeekBar?) {}
-            override fun onStopTrackingTouch(seekBar: android.widget.SeekBar?) {
+            override fun onStartTrackingTouch(seekBar: SeekBar?) {}
+            override fun onStopTrackingTouch(seekBar: SeekBar?) {
                 val days = (seekBar?.progress ?: 0) + 1
-                prefs.edit { putInt(KEY_DAYS_AHEAD, days) }
+                prefs.edit(commit = true) { putInt(KEY_DAYS_AHEAD, days) }
                 FootballWidgetProvider.updateAllWidgets(this@MainActivity)
             }
         })
 
-        btnNotificationSettings.setOnClickListener {
+        // 3. Transparency
+        val tvTransparencyValue = findViewById<TextView>(R.id.tvTransparencyValue)
+        val seekBarTransparency = findViewById<SeekBar>(R.id.seekBarTransparency)
+        val savedTransparency = getWidgetTransparency(this)
+        seekBarTransparency.progress = savedTransparency
+        updateTransparencyText(tvTransparencyValue, savedTransparency)
+        seekBarTransparency.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+            override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
+                updateTransparencyText(tvTransparencyValue, progress)
+            }
+            override fun onStartTrackingTouch(seekBar: SeekBar?) {}
+            override fun onStopTrackingTouch(seekBar: SeekBar?) {
+                val transparency = seekBar?.progress ?: DEFAULT_WIDGET_TRANSPARENCY
+                prefs.edit(commit = true) { putInt(KEY_WIDGET_TRANSPARENCY, transparency) }
+                FootballWidgetProvider.updateAllWidgets(this@MainActivity)
+            }
+        })
+
+        findViewById<Button>(R.id.btnNotificationSettings).setOnClickListener {
             openNotificationSettings(this)
         }
 
-        btnDone.setOnClickListener {
+        findViewById<Button>(R.id.btnDone).setOnClickListener {
             prefs.edit { putBoolean(KEY_SETUP_COMPLETED, true) }
             finish()
         }
     }
 
-    private fun updateThresholdText(textView: android.widget.TextView, threshold: Float) {
+    private fun updateThresholdText(textView: TextView, threshold: Float) {
         textView.text = getString(R.string.current_threshold_format, threshold)
     }
 
-    private fun updateTransparencyText(textView: android.widget.TextView, transparency: Int) {
+    private fun updateTransparencyText(textView: TextView, transparency: Int) {
         textView.text = getString(R.string.transparency_format, transparency)
     }
 
-    private fun updateDaysAheadText(textView: android.widget.TextView, days: Int) {
+    private fun updateDaysAheadText(textView: TextView, days: Int) {
         textView.text = getString(R.string.days_ahead_format, days)
     }
 
