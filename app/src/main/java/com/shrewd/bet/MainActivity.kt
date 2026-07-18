@@ -27,14 +27,9 @@ class MainActivity : AppCompatActivity() {
         private const val DEFAULT_WIDGET_TRANSPARENCY = 70 // 70%
         private const val DEFAULT_DAYS_AHEAD = 1
 
-        fun isSetupCompleted(context: Context): Boolean {
-            return context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
-                .getBoolean(KEY_SETUP_COMPLETED, false)
-        }
-
         fun areNotificationsEnabled(context: Context): Boolean {
             val notificationManager = context.getSystemService(Context.NOTIFICATION_SERVICE) as android.app.NotificationManager
-            return if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
+            return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
                 notificationManager.areNotificationsEnabled()
             } else {
                 true // Fallback for old versions
@@ -171,7 +166,7 @@ class MainActivity : AppCompatActivity() {
         }
         try {
             context.startActivity(intent)
-        } catch (e: Exception) {
+        } catch (_: Exception) {
             val fallbackIntent = Intent(android.provider.Settings.ACTION_APPLICATION_DETAILS_SETTINGS).apply {
                 data = android.net.Uri.fromParts("package", context.packageName, null)
                 addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)

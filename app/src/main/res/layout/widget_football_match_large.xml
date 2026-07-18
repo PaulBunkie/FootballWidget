@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/widgetRoot"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -10,7 +11,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:src="@drawable/widget_rounded_bg"
-        android:scaleType="fitXY" />
+        android:scaleType="fitXY"
+        tools:ignore="ContentDescription" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -20,13 +22,15 @@
         android:paddingStart="12dp"
         android:paddingEnd="12dp"
         android:gravity="top|center_horizontal"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:baselineAligned="false">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:baselineAligned="false">
 
             <!-- Zone 1: Home (PREV) -->
             <LinearLayout
@@ -44,7 +48,8 @@
                     android:layout_height="14dp"
                     android:src="@drawable/ic_star"
                     android:visibility="invisible"
-                    android:layout_marginBottom="4dp" />
+                    android:layout_marginBottom="4dp"
+                    tools:ignore="ContentDescription" />
 
                 <TextView
                     android:id="@+id/homeTeam"
@@ -62,7 +67,8 @@
                     android:layout_width="64dp"
                     android:layout_height="64dp"
                     android:layout_marginTop="8dp"
-                    android:scaleType="centerInside" />
+                    android:scaleType="centerInside"
+                    tools:ignore="ContentDescription" />
             </LinearLayout>
 
             <!-- Zone 2: Center (DETAILS) -->
@@ -134,11 +140,12 @@
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
-                    android:layout_marginTop="4dp">
+                    android:layout_marginTop="4dp"
+                    android:baselineAligned="false">
                     <TextView android:id="@+id/oddsHome" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textColor="#4CAF50" android:textSize="13sp" />
-                    <TextView android:id="@+id/arrow1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text=" → " android:textColor="#80FFFFFF" android:textSize="12sp" android:visibility="gone" />
+                    <TextView android:id="@+id/arrow1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/arrow_separator" android:textColor="#80FFFFFF" android:textSize="12sp" android:visibility="gone" />
                     <TextView android:id="@+id/oddsAway" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textColor="#F44336" android:textSize="13sp" />
-                    <TextView android:id="@+id/arrow2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text=" → " android:textColor="#80FFFFFF" android:textSize="12sp" android:visibility="gone" />
+                    <TextView android:id="@+id/arrow2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/arrow_separator" android:textColor="#80FFFFFF" android:textSize="12sp" android:visibility="gone" />
                     <TextView android:id="@+id/oddsDraw" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textColor="#FFFFFF" android:textSize="13sp" />
                 </LinearLayout>
 
@@ -166,7 +173,8 @@
                     android:layout_height="14dp"
                     android:src="@drawable/ic_star"
                     android:visibility="invisible"
-                    android:layout_marginBottom="4dp" />
+                    android:layout_marginBottom="4dp"
+                    tools:ignore="ContentDescription" />
 
                 <TextView
                     android:id="@+id/awayTeam"
@@ -184,7 +192,8 @@
                     android:layout_width="64dp"
                     android:layout_height="64dp"
                     android:layout_marginTop="8dp"
-                    android:scaleType="centerInside" />
+                    android:scaleType="centerInside"
+                    tools:ignore="ContentDescription" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

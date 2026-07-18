@@ -16,6 +16,7 @@
     <string name="unavailable_in_country">Service unavailable in your country</string>
     <string name="today">TODAY</string>
     <string name="tomorrow">TOMORROW</string>
+    <string name="arrow_separator" translatable="false"> → </string>
     <string name="no_active_matches">No active matches</string>
     <string name="loading_matches">Loading matches&#8230;</string>
     <string name="goal">Goal!</string>
